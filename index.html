@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time-List | 优雅记录时间，高效管理生活</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/timeline.css">
+    <link rel="stylesheet" href="css/statistics.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <meta name="description" content="Time-List - 一个具有苹果设计风格的时间管理平台，帮助您记录事件、标记时间并统计用时。">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="global-nav">
+            <div class="container">
+                <a href="/" class="logo">Time-List</a>
+                <ul class="nav-links">
+                    <li><a href="#features">功能</a></li>
+                    <li><a href="#timeline">时间轴</a></li>
+                    <li><a href="#statistics">统计</a></li>
+                    <li><a href="#about">关于</a></li>
+                </ul>
+                <div class="user-actions">
+                    <a href="#login" class="btn btn-login">登录</a>
+                    <a href="#register" class="btn btn-primary">注册</a>
+                </div>
+            </div>
+        </nav>
+        
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-title">优雅记录时间<br>高效管理生活</h1>
+                <p class="hero-subtitle">Time-List 帮助您轻松记录生活与工作中的每一个重要时刻</p>
+                <a href="#register" class="btn btn-hero">开始使用</a>
+            </div>
+        </section>
+    </header>
+
+    <main>
+        <section id="features" class="section features">
+            <div class="container">
+                <h2 class="section-title">强大功能，简约设计</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon timeline-icon"></div>
+                        <h3>时间轴视图</h3>
+                        <p>直观展示您的事件时间线，一目了然地查看过去和计划中的活动。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon event-icon"></div>
+                        <h3>事件记录</h3>
+                        <p>详细记录每个事件的开始、结束时间和相关细节，无遗漏地追踪您的活动。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon tag-icon"></div>
+                        <h3>标签系统</h3>
+                        <p>通过自定义标签对事件进行分类，轻松筛选和组织您的时间记录。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon stats-icon"></div>
+                        <h3>用时统计</h3>
+                        <p>智能分析您在不同活动上的时间分配，助您优化时间管理策略。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="timeline" class="section timeline">
+            <div class="container">
+                <h2 class="section-title">时间轴展示</h2>
+                <p class="section-description">通过视觉化时间轴，直观了解您的时间分配</p>
+                <div class="timeline-demo">
+                    <!-- 这里将通过CSS和JS实现时间轴的演示效果 -->
+                    <div class="timeline-container">
+                        <div class="timeline-event work">
+                            <span class="event-time">9:00 - 11:30</span>
+                            <h4 class="event-title">项目会议</h4>
+                        </div>
+                        <div class="timeline-event break">
+                            <span class="event-time">11:30 - 12:30</span>
+                            <h4 class="event-title">午餐休息</h4>
+                        </div>
+                        <div class="timeline-event focus">
+                            <span class="event-time">12:30 - 15:00</span>
+                            <h4 class="event-title">专注工作</h4>
+                        </div>
+                        <div class="timeline-event exercise">
+                            <span class="event-time">18:00 - 19:00</span>
+                            <h4 class="event-title">健身锻炼</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="cta-container">
+                    <a href="#register" class="btn btn-secondary">开始创建您的时间轴</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="statistics" class="section statistics">
+            <div class="container">
+                <h2 class="section-title">深入分析您的时间</h2>
+                <p class="section-description">通过数据可视化，了解您的时间分配情况</p>
+                <div class="stats-demo">
+                    <!-- 这里将展示统计图表的示例 -->
+                    <div class="stats-chart">
+                        <!-- 图表将通过JS库生成 -->
+                    </div>
+                    <div class="stats-highlights">
+                        <div class="stat-item">
+                            <span class="stat-value">38%</span>
+                            <span class="stat-label">工作时间</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">15%</span>
+                            <span class="stat-label">学习时间</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">22%</span>
+                            <span class="stat-label">休闲时间</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">25%</span>
+                            <span class="stat-label">其他活动</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cta-container">
+                    <a href="#features" class="btn btn-secondary">了解更多分析功能</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section about">
+            <div class="container">
+                <h2 class="section-title">关于 Time-List</h2>
+                <p class="section-description">我们创建 Time-List 的目标是帮助每个人更好地理解和管理自己的时间</p>
+                <div class="about-content">
+                    <p>时间是我们最宝贵的资源。通过记录和分析时间的使用情况，我们可以发现生活中的时间黑洞，优化时间分配，提高生活质量和工作效率。</p>
+                    <p>Time-List 采用简约而优雅的设计，让时间记录变得轻松愉快，而不是另一项负担。我们相信，通过更好地了解自己的时间使用模式，每个人都能够创造更加平衡和高效的生活。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Time-List</h3>
+                    <p>优雅记录时间，高效管理生活</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>产品</h4>
+                        <ul>
+                            <li><a href="#features">功能</a></li>
+                            <li><a href="#timeline">时间轴</a></li>
+                            <li><a href="#statistics">统计</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>支持</h4>
+                        <ul>
+                            <li><a href="#faq">常见问题</a></li>
+                            <li><a href="#contact">联系我们</a></li>
+                            <li><a href="#help">帮助中心</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>法律</h4>
+                        <ul>
+                            <li><a href="#privacy">隐私政策</a></li>
+                            <li><a href="#terms">使用条款</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Time-List. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript 文件 -->
+    <script src="js/main.js"></script>
+    <script src="js/timeline.js"></script>
+    <script src="js/statistics.js"></script>
+    <script>
+        // 初始化应用程序
+        document.addEventListener('DOMContentLoaded', function() {
+            // 在这里可以初始化Timeline和TimeStatistics实例
+            // 注意：这里只是演示页面，实际的应用实例会在用户登录后的应用页面初始化
+        });
+    </script>
+</body>
+</html> 

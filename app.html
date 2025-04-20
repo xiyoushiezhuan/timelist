@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time-List | 我的时间管理</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/timeline.css">
+    <link rel="stylesheet" href="css/statistics.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <meta name="description" content="Time-List - 一个具有苹果设计风格的时间管理平台，帮助您记录事件、标记时间并统计用时。">
+</head>
+<body class="app-body">
+    <header class="app-header">
+        <nav class="global-nav">
+            <div class="container">
+                <a href="/" class="logo">Time-List</a>
+                <ul class="nav-links">
+                    <li><a href="#timeline-section" class="active">时间轴</a></li>
+                    <li><a href="#statistics-section">统计</a></li>
+                    <li><a href="#settings-section">设置</a></li>
+                </ul>
+                <div class="user-actions">
+                    <span class="user-name">张小明</span>
+                    <button class="btn btn-login" id="logout-btn">退出</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="app-main">
+        <div class="container">
+            <div class="app-container">
+                <!-- 侧边栏 -->
+                <aside class="app-sidebar">
+                    <div class="user-profile">
+                        <div class="user-avatar">
+                            <span>张</span>
+                        </div>
+                        <h3 class="user-name">张小明</h3>
+                        <p class="user-email">zhangxm@example.com</p>
+                    </div>
+                    <nav class="sidebar-nav">
+                        <ul>
+                            <li><a href="#timeline-section" class="active"><i class="icon-timeline"></i>时间轴</a></li>
+                            <li><a href="#statistics-section"><i class="icon-stats"></i>统计</a></li>
+                            <li><a href="#tags-section"><i class="icon-tags"></i>标签管理</a></li>
+                            <li><a href="#settings-section"><i class="icon-settings"></i>设置</a></li>
+                        </ul>
+                    </nav>
+                    <div class="sidebar-footer">
+                        <button class="btn btn-primary new-event-btn"><i class="icon-plus"></i>新建事件</button>
+                    </div>
+                </aside>
+
+                <!-- 主内容区 -->
+                <div class="app-content">
+                    <!-- 时间轴区域 -->
+                    <section id="timeline-section" class="app-section active">
+                        <div class="section-header">
+                            <h2>我的时间轴</h2>
+                            <div class="section-actions">
+                                <div class="date-selector">
+                                    <button class="date-nav prev"><i class="icon-left"></i></button>
+                                    <span class="current-date">2023年10月</span>
+                                    <button class="date-nav next"><i class="icon-right"></i></button>
+                                </div>
+                                <button class="btn btn-primary new-event-btn-inline"><i class="icon-plus"></i>新建事件</button>
+                            </div>
+                        </div>
+                        
+                        <!-- 时间轴应用容器 -->
+                        <div class="timeline-app"></div>
+                    </section>
+                    
+                    <!-- 统计区域 -->
+                    <section id="statistics-section" class="app-section">
+                        <div class="section-header">
+                            <h2>时间统计</h2>
+                            <div class="section-actions">
+                                <select class="stats-period-select">
+                                    <option value="week">本周</option>
+                                    <option value="month" selected>本月</option>
+                                    <option value="quarter">本季度</option>
+                                    <option value="year">今年</option>
+                                    <option value="all">全部</option>
+                                </select>
+                                <button class="btn btn-secondary export-stats-btn"><i class="icon-download"></i>导出报告</button>
+                            </div>
+                        </div>
+                        
+                        <!-- 统计应用容器 -->
+                        <div class="statistics-app"></div>
+                    </section>
+                    
+                    <!-- 标签管理区域 -->
+                    <section id="tags-section" class="app-section">
+                        <div class="section-header">
+                            <h2>标签管理</h2>
+                            <div class="section-actions">
+                                <button class="btn btn-primary new-tag-btn"><i class="icon-plus"></i>新建标签</button>
+                            </div>
+                        </div>
+                        
+                        <div class="tags-manager">
+                            <div class="tags-list-container">
+                                <div class="tags-group">
+                                    <h3>工作相关</h3>
+                                    <div class="tags-grid">
+                                        <div class="tag-item">
+                                            <span class="tag">会议</span>
+                                            <div class="tag-actions">
+                                                <button class="edit-tag-btn"><i class="icon-edit"></i></button>
+                                                <button class="delete-tag-btn"><i class="icon-delete"></i></button>
+                                            </div>
+                                        </div>
+                                        <div class="tag-item">
+                                            <span class="tag">项目开发</span>
+                                            <div class="tag-actions">
+                                                <button class="edit-tag-btn"><i class="icon-edit"></i></button>
+                                                <button class="delete-tag-btn"><i class="icon-delete"></i></button>
+                                            </div>
+                                        </div>
+                                        <div class="tag-item">
+                                            <span class="tag">客户沟通</span>
+                                            <div class="tag-actions">
+                                                <button class="edit-tag-btn"><i class="icon-edit"></i></button>
+                                                <button class="delete-tag-btn"><i class="icon-delete"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="tags-group">
+                                    <h3>个人生活</h3>
+                                    <div class="tags-grid">
+                                        <div class="tag-item">
+                                            <span class="tag">健身</span>
+                                            <div class="tag-actions">
+                                                <button class="edit-tag-btn"><i class="icon-edit"></i></button>
+                                                <button class="delete-tag-btn"><i class="icon-delete"></i></button>
+                                            </div>
+                                        </div>
+                                        <div class="tag-item">
+                                            <span class="tag">阅读</span>
+                                            <div class="tag-actions">
+                                                <button class="edit-tag-btn"><i class="icon-edit"></i></button>
+                                                <button class="delete-tag-btn"><i class="icon-delete"></i></button>
+                                            </div>
+                                        </div>
+                                        <div class="tag-item">
+                                            <span class="tag">家庭时间</span>
+                                            <div class="tag-actions">
+                                                <button class="edit-tag-btn"><i class="icon-edit"></i></button>
+                                                <button class="delete-tag-btn"><i class="icon-delete"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tag-form-container hidden">
+                                <h3>添加新标签</h3>
+                                <form class="tag-form">
+                                    <div class="form-group">
+                                        <label for="tag-name">标签名称</label>
+                                        <input type="text" id="tag-name" name="tag-name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tag-group">标签分组</label>
+                                        <select id="tag-group" name="tag-group">
+                                            <option value="work">工作相关</option>
+                                            <option value="personal">个人生活</option>
+                                            <option value="other">其他</option>
+                                            <option value="new">新建分组...</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group tag-color-group">
+                                        <label>标签颜色</label>
+                                        <div class="color-options">
+                                            <label class="color-option">
+                                                <input type="radio" name="tag-color" value="#007aff" checked>
+                                                <span class="color-dot" style="background-color: #007aff;"></span>
+                                            </label>
+                                            <label class="color-option">
+                                                <input type="radio" name="tag-color" value="#34c759">
+                                                <span class="color-dot" style="background-color: #34c759;"></span>
+                                            </label>
+                                            <label class="color-option">
+                                                <input type="radio" name="tag-color" value="#5856d6">
+                                                <span class="color-dot" style="background-color: #5856d6;"></span>
+                                            </label>
+                                            <label class="color-option">
+                                                <input type="radio" name="tag-color" value="#ff3b30">
+                                                <span class="color-dot" style="background-color: #ff3b30;"></span>
+                                            </label>
+                                            <label class="color-option">
+                                                <input type="radio" name="tag-color" value="#ff9500">
+                                                <span class="color-dot" style="background-color: #ff9500;"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="button" class="btn btn-secondary cancel-tag-btn">取消</button>
+                                        <button type="submit" class="btn btn-primary save-tag-btn">保存</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- 设置区域 -->
+                    <section id="settings-section" class="app-section">
+                        <div class="section-header">
+                            <h2>设置</h2>
+                        </div>
+                        
+                        <div class="settings-content">
+                            <div class="settings-group">
+                                <h3>账号设置</h3>
+                                <div class="settings-form">
+                                    <div class="form-group">
+                                        <label for="display-name">显示名称</label>
+                                        <input type="text" id="display-name" value="张小明">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">电子邮箱</label>
+                                        <input type="email" id="email" value="zhangxm@example.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-secondary">修改密码</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-group">
+                                <h3>显示设置</h3>
+                                <div class="settings-form">
+                                    <div class="form-group">
+                                        <label for="time-format">时间格式</label>
+                                        <select id="time-format">
+                                            <option value="12">12小时制 (上午/下午)</option>
+                                            <option value="24" selected>24小时制</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="week-start">每周开始于</label>
+                                        <select id="week-start">
+                                            <option value="monday" selected>星期一</option>
+                                            <option value="sunday">星期日</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="dark-mode" checked>
+                                            <span>跟随系统暗色模式</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-group">
+                                <h3>数据设置</h3>
+                                <div class="settings-form">
+                                    <div class="form-group">
+                                        <button class="btn btn-secondary">导出所有数据</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-secondary">导入数据</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-danger">清除所有数据</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-actions">
+                                <button class="btn btn-primary">保存设置</button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="app-footer">
+        <div class="container">
+            <p>&copy; 2023 Time-List. 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript 文件 -->
+    <script src="js/main.js"></script>
+    <script src="js/timeline.js"></script>
+    <script src="js/statistics.js"></script>
+    <script>
+        // 初始化应用程序
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化时间轴
+            const timeline = new Timeline({
+                container: '.timeline-app',
+                storage: 'localStorage'
+            });
+            
+            // 初始化统计功能
+            const statistics = new TimeStatistics({
+                container: '.statistics-app',
+                timelineInstance: timeline
+            });
+            
+            // 处理导航
+            const navLinks = document.querySelectorAll('.sidebar-nav a, .nav-links a');
+            const sections = document.querySelectorAll('.app-section');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // 获取目标部分ID
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    // 隐藏所有部分并移除活跃状态
+                    sections.forEach(section => section.classList.remove('active'));
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    
+                    // 显示目标部分并设置活跃状态
+                    targetSection.classList.add('active');
+                    document.querySelectorAll(`a[href="${targetId}"]`).forEach(link => {
+                        link.classList.add('active');
+                    });
+                });
+            });
+            
+            // 处理新建事件按钮
+            const newEventBtns = document.querySelectorAll('.new-event-btn, .new-event-btn-inline');
+            newEventBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // 确保时间轴部分是活跃的
+                    sections.forEach(section => section.classList.remove('active'));
+                    document.getElementById('timeline-section').classList.add('active');
+                    
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    document.querySelectorAll('a[href="#timeline-section"]').forEach(link => {
+                        link.classList.add('active');
+                    });
+                    
+                    // 显示添加事件表单
+                    timeline.showEventForm();
+                });
+            });
+            
+            // 标签管理功能
+            const newTagBtn = document.querySelector('.new-tag-btn');
+            const tagForm = document.querySelector('.tag-form-container');
+            const cancelTagBtn = document.querySelector('.cancel-tag-btn');
+            
+            if (newTagBtn && tagForm && cancelTagBtn) {
+                newTagBtn.addEventListener('click', function() {
+                    tagForm.classList.remove('hidden');
+                });
+                
+                cancelTagBtn.addEventListener('click', function() {
+                    tagForm.classList.add('hidden');
+                });
+                
+                document.querySelector('.tag-form').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // 处理标签提交
+                    // 这里只是演示，实际应用需要进一步实现
+                    
+                    alert('标签已保存！');
+                    tagForm.classList.add('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+</html> 

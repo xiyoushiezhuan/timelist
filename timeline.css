@@ -1,0 +1,292 @@
+/**
+ * Time-List.top - 时间轴组件样式
+ */
+
+.timeline-app {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: var(--font-sans);
+}
+
+/* 时间轴头部 */
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.timeline-header h2 {
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.timeline-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+/* 时间轴容器 */
+.timeline-container {
+    position: relative;
+    padding-left: 3rem;
+    margin-bottom: 4rem;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--border-color);
+}
+
+/* 时间轴事件 */
+.timeline-event {
+    margin-bottom: 2.5rem;
+    padding: 2rem;
+    border-radius: var(--radius-medium);
+    position: relative;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all var(--transition-normal);
+}
+
+.timeline-event::before {
+    content: '';
+    position: absolute;
+    left: -3rem;
+    top: 2rem;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid;
+    z-index: 1;
+}
+
+.timeline-event:hover {
+    transform: translateX(5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* 事件类型样式 */
+.timeline-event.work {
+    border-left: 3px solid var(--work-color);
+}
+
+.timeline-event.work::before {
+    border-color: var(--work-color);
+}
+
+.timeline-event.break {
+    border-left: 3px solid var(--break-color);
+}
+
+.timeline-event.break::before {
+    border-color: var(--break-color);
+}
+
+.timeline-event.focus {
+    border-left: 3px solid var(--focus-color);
+}
+
+.timeline-event.focus::before {
+    border-color: var(--focus-color);
+}
+
+.timeline-event.exercise {
+    border-left: 3px solid var(--exercise-color);
+}
+
+.timeline-event.exercise::before {
+    border-color: var(--exercise-color);
+}
+
+.timeline-event.other {
+    border-left: 3px solid #9e9e9e;
+}
+
+.timeline-event.other::before {
+    border-color: #9e9e9e;
+}
+
+/* 事件内容样式 */
+.event-time {
+    font-size: 1.4rem;
+    color: var(--text-secondary);
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.event-title {
+    font-size: 1.8rem;
+    margin: 0 0 0.8rem;
+    font-weight: 500;
+}
+
+.event-duration {
+    font-size: 1.3rem;
+    background-color: var(--background-secondary);
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--radius-small);
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.event-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.tag {
+    font-size: 1.2rem;
+    background-color: rgba(0, 113, 227, 0.1);
+    color: var(--primary-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--radius-small);
+}
+
+.event-description {
+    font-size: 1.4rem;
+    margin: 1rem 0;
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+.event-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.event-actions button {
+    font-size: 1.3rem;
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 0.5rem 0;
+    transition: color var(--transition-fast);
+}
+
+.event-actions button:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+/* 空状态 */
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-secondary);
+}
+
+.empty-state p {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+}
+
+/* 表单样式 */
+.event-form {
+    background-color: white;
+    border-radius: var(--radius-large);
+    padding: 3rem;
+    margin-bottom: 4rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.event-form.hidden {
+    display: none;
+}
+
+.event-form h3 {
+    font-size: 2rem;
+    margin: 0 0 2rem;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 1.2rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-small);
+    font-size: 1.6rem;
+    transition: border-color var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+/* 响应式样式 */
+@media (max-width: 768px) {
+    .timeline-app {
+        padding: 1.5rem;
+    }
+    
+    .timeline-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .event-form {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .timeline-container {
+        padding-left: 2.5rem;
+    }
+    
+    .timeline-event {
+        padding: 1.5rem;
+    }
+    
+    .timeline-event::before {
+        left: -2.5rem;
+        width: 1.4rem;
+        height: 1.4rem;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .form-actions button {
+        width: 100%;
+    }
+} 

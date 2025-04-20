@@ -1,0 +1,698 @@
+/**
+ * Time-List.top - 统计功能样式
+ */
+
+.statistics-app {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 统计头部 */
+.stats-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.stats-header h2 {
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.stats-filters {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.stats-filters select {
+    padding: 0.8rem 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-small);
+    font-size: 1.4rem;
+    background-color: white;
+    cursor: pointer;
+}
+
+.stats-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+/* 统计概览卡片 */
+.stats-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stats-card {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.stats-card:hover {
+    transform: translateY(-5px);
+}
+
+.stats-card h3 {
+    margin-top: 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+.stats-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.total-time {
+    border-top: 3px solid var(--primary-color);
+}
+
+.avg-daily {
+    border-top: 3px solid var(--focus-color);
+}
+
+.most-tracked {
+    border-top: 3px solid var(--work-color);
+}
+
+/* 图表容器 */
+.stats-charts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.chart-container {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    min-height: 300px;
+}
+
+.chart-container h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.pie-chart, .bar-chart {
+    height: 250px;
+}
+
+/* 标签统计 */
+.stats-tags {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.stats-tags h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.tags-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag-stat {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 8px 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.tag-color {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.tag-name {
+    font-weight: 500;
+    margin-right: 8px;
+}
+
+.tag-value {
+    color: #666;
+}
+
+.empty-stats {
+    color: #999;
+    font-style: italic;
+}
+
+/* 类型颜色 */
+.work { background-color: #4e73df; color: white; }
+.study { background-color: #1cc88a; color: white; }
+.life { background-color: #f6c23e; color: white; }
+.entertainment { background-color: #e74a3b; color: white; }
+.other { background-color: #858796; color: white; }
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .stats-charts {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+/* 周报样式 */
+.weekly-report-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.weekly-report-container.hidden {
+    display: none;
+}
+
+.weekly-report-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.98);
+    z-index: 10;
+}
+
+.weekly-report-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.weekly-report-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.weekly-report-summary {
+    margin-bottom: 30px;
+}
+
+.weekly-report-summary h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.report-summary-stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.report-stat-item {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    flex: 1;
+    min-width: 150px;
+}
+
+.report-stat-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.report-stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.weekly-report-chart {
+    margin-bottom: 30px;
+}
+
+.weekly-report-chart h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size:.2rem;
+    color: #333;
+}
+
+.report-type-distribution {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.report-type-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+}
+
+.report-type-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.report-type-name {
+    flex: 1;
+    font-weight: 500;
+}
+
+.report-type-value {
+    font-weight: 500;
+    color: #555;
+}
+
+.weekly-report-days {
+    margin-bottom: 30px;
+}
+
+.weekly-report-days h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.report-day {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.report-day h5 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+
+.report-no-events {
+    color: #999;
+    font-style: italic;
+}
+
+.report-day-total {
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.report-events-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.report-event-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 8px 10px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-left: 4px solid #ccc;
+}
+
+.report-event-item.work { border-left-color: #4e73df; }
+.report-event-item.study { border-left-color: #1cc88a; }
+.report-event-item.life { border-left-color: #f6c23e; }
+.report-event-item.entertainment { border-left-color: #e74a3b; }
+.report-event-item.other { border-left-color: #858796; }
+
+.report-event-time {
+    flex: 0 0 180px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.report-event-title {
+    flex: 1;
+    font-weight: 500;
+}
+
+.report-event-duration {
+    font-size: 0.9rem;
+    color: #666;
+    min-width: 80px;
+    text-align: right;
+}
+
+.weekly-report-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* 按钮样式 */
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    cursor: pointer;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #4e73df;
+    border-color: #4e73df;
+}
+
+.btn-primary:hover {
+    background-color: #2e59d9;
+    border-color: #2653d4;
+}
+
+.btn-secondary {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* 打印样式 */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    
+    .weekly-report-container,
+    .weekly-report-container * {
+        visibility: visible;
+    }
+    
+    .weekly-report-container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: #fff;
+    }
+    
+    .close-report-btn,
+    .weekly-report-actions {
+        display: none !important;
+    }
+}
+
+/* 月度报告样式 */
+.monthly-report-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.monthly-report-container.hidden {
+    display: none;
+}
+
+.monthly-report-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.98);
+    z-index: 10;
+}
+
+.monthly-report-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.monthly-report-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.monthly-report-summary {
+    margin-bottom: 30px;
+}
+
+.monthly-report-summary h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    color: #333;
+}
+
+.report-period {
+    margin-bottom: 15px;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.monthly-report-chart {
+    margin-bottom: 30px;
+}
+
+.monthly-report-chart h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.monthly-type-distribution {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.monthly-report-weeks {
+    margin-bottom: 30px;
+}
+
+.monthly-report-weeks h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.weekly-summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.weekly-summary-table th {
+    background-color: #f8f9fa;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 500;
+    color: #333;
+    border-bottom: 1px solid #eee;
+}
+
+.weekly-summary-table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.weekly-summary-table tr:last-child td {
+    border-bottom: none;
+}
+
+.weekly-summary-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+.monthly-report-details {
+    margin-bottom: 30px;
+}
+
+.monthly-report-details h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.monthly-details-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.monthly-day-events {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.monthly-day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.monthly-day-header h5 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.day-total-time {
+    font-weight: 500;
+    color: #555;
+}
+
+.monthly-events-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.monthly-event-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 8px 10px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-left: 4px solid #ccc;
+}
+
+.monthly-event-item.work { border-left-color: #4e73df; }
+.monthly-event-item.study { border-left-color: #1cc88a; }
+.monthly-event-item.life { border-left-color: #f6c23e; }
+.monthly-event-item.entertainment { border-left-color: #e74a3b; }
+.monthly-event-item.other { border-left-color: #858796; }
+
+.monthly-event-time {
+    flex: 0 0 180px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.monthly-event-title {
+    flex: 1;
+    font-weight: 500;
+}
+
+.monthly-event-duration {
+    font-size: 0.9rem;
+    color: #666;
+    min-width: 80px;
+    text-align: right;
+}
+
+.monthly-report-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* 扩展打印样式，兼容月度报告 */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    
+    .weekly-report-container,
+    .weekly-report-container *,
+    .monthly-report-container,
+    .monthly-report-container * {
+        visibility: visible;
+    }
+    
+    .weekly-report-container,
+    .monthly-report-container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: #fff;
+    }
+    
+    .close-report-btn,
+    .weekly-report-actions,
+    .monthly-report-actions {
+        display: none !important;
+    }
+} 
